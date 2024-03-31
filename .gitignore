@@ -1,0 +1,12 @@
+db.sqlite3
+
+venv
+
+*.log
+
+.DS_Store
+.idea
+
+
+
+smart_home_server/local_settings.py
