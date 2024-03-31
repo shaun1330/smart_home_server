@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sensors',
+    'devices',
     'rest_framework',
     'rest_framework.authtoken'
 ]
@@ -99,7 +99,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated'
-    ]
+    ],
+    'EXCEPTION_HANDLER': 'smart_home_server.custom_handlers.custom_exception_handler'
 }
 
 # Password validation
@@ -126,25 +127,13 @@ LOGGING = {
     'handlers': {
         'console': {
             'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'detailed'
-        },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-            'formatter': 'detailed'
-        }
-    },
-    'formatters': {
-        'detailed': {
-            'format': '[%(asctime)s] %(message)s'
+            'class': 'logging.StreamHandler'
         }
     },
     'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
+        'server_log': {
+            'handlers': ['console'],
+            'level': 'INFO',
             'propagate': True,
         },
     },
