@@ -10,3 +10,4 @@ venv
 
 
 smart_home_server/local_settings.py
+config.ini
