@@ -15,4 +15,8 @@ config.ini
 
 */__pycache__/
 
+__pycache__/
+
 devices/migrations/__pycache__/
+
+.pytest_cache

@@ -13,7 +13,8 @@ def register_device(request):
     location = data.get('location')
     device = Device.objects.create(location=location)
     response = {
-        'device_id': device.pk
+        'device_id': device.pk,
+        'location': location
     }
     logger.info(f"Device registered: {device.pk}")
     return Response(response)
@@ -27,7 +28,7 @@ def heartbeat(request):
     device.heartbeat()
     response = {
         'device_id': device_id,
-        'last_checkin': device.last_checkin
+        'last_checkin': device.last_checkin.strftime('%Y-%m-%d %H:%M:%S')
     }
     return Response(response)
 
